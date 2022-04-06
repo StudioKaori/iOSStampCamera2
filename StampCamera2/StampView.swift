@@ -7,15 +7,13 @@
 
 import UIKit
 
-enum StampScale {
-    case small
-    case medium
-    case large
-}
-
 class StampView: UIImageView {
     
+    let imageSizes:[CGFloat] = [50, 100, 150]
+    var currentImageSizeIndex: Int = 1
+    
     var currentTouche: UITouch!
+
     
     // Add double tap gesture for resizing the stamp
     // executed when it's instanciate in super view
@@ -40,9 +38,13 @@ class StampView: UIImageView {
     }
     
     @objc func doubleTapped(){
-        print(self)
-        let size:CGFloat = 20
-        self.frame = CGRect(x: currentTouche.location(in: self.superview).x, y: currentTouche.location(in: self.superview).y, width: size, height: size)
+        currentImageSizeIndex += 1
+        if currentImageSizeIndex + 1 > imageSizes.count {
+            currentImageSizeIndex = 0
+        }
+        let size:CGFloat = imageSizes[currentImageSizeIndex]
+        let position = size/2
+        self.frame = CGRect(x: currentTouche.location(in: self.superview).x - position, y: currentTouche.location(in: self.superview).y - position, width: size, height: size)
         //self.center = self.superview!.center
 
     }
