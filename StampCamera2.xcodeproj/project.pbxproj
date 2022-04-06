@@ -19,6 +19,7 @@
 		434A733C27FD8F6600779518 /* stamp1.png in Resources */ = {isa = PBXBuildFile; fileRef = 434A733827FD8F6600779518 /* stamp1.png */; };
 		434A734027FD95A700779518 /* StampBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434A733F27FD95A700779518 /* StampBaseView.swift */; };
 		434A734227FD962A00779518 /* StampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434A734127FD962A00779518 /* StampView.swift */; };
+		434A734427FD9CE600779518 /* StampSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434A734327FD9CE600779518 /* StampSelectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		434A733827FD8F6600779518 /* stamp1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stamp1.png; sourceTree = "<group>"; };
 		434A733F27FD95A700779518 /* StampBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampBaseView.swift; sourceTree = "<group>"; };
 		434A734127FD962A00779518 /* StampView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampView.swift; sourceTree = "<group>"; };
+		434A734327FD9CE600779518 /* StampSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampSelectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				434A732427FD8F3000779518 /* ViewController.swift */,
 				434A733F27FD95A700779518 /* StampBaseView.swift */,
 				434A734127FD962A00779518 /* StampView.swift */,
+				434A734327FD9CE600779518 /* StampSelectViewController.swift */,
 				434A732627FD8F3000779518 /* Main.storyboard */,
 				434A732927FD8F3100779518 /* Assets.xcassets */,
 				434A732B27FD8F3100779518 /* LaunchScreen.storyboard */,
@@ -172,6 +175,7 @@
 				434A734027FD95A700779518 /* StampBaseView.swift in Sources */,
 				434A732127FD8F3000779518 /* AppDelegate.swift in Sources */,
 				434A734227FD962A00779518 /* StampView.swift in Sources */,
+				434A734427FD9CE600779518 /* StampSelectViewController.swift in Sources */,
 				434A732327FD8F3000779518 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

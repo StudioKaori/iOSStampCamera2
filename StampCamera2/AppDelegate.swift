@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  StampCamera2
 //
-//  Created by Kaori Persson on 2022-04-06.
+//  Created by Kaori Persson on 2022-04.
 //
 
 import UIKit
