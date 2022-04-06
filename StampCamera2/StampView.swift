@@ -9,10 +9,11 @@ import UIKit
 
 class StampView: UIImageView {
     
-    let imageSizes:[CGFloat] = [50, 100, 150]
+    //let imageSizes:[CGFloat] = [50, 100, 150]
+    let imageSizes:[CGFloat] = [0.7, 1.0, 1.5]
     var currentImageSizeIndex: Int = 1
     
-    var currentTouche: UITouch!
+    //var currentTouche: UITouch!
 
     
     // Add double tap gesture for resizing the stamp
@@ -25,7 +26,7 @@ class StampView: UIImageView {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.superview?.bringSubviewToFront(self)
-        currentTouche = touches.first
+        //currentTouche = touches.first
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -43,9 +44,10 @@ class StampView: UIImageView {
             currentImageSizeIndex = 0
         }
         let size:CGFloat = imageSizes[currentImageSizeIndex]
-        let position = size/2
-        self.frame = CGRect(x: currentTouche.location(in: self.superview).x - position, y: currentTouche.location(in: self.superview).y - position, width: size, height: size)
-        //self.center = self.superview!.center
+        self.transform = CGAffineTransform(scaleX: size, y: size)
+//        let position = size/2
+//        self.frame = CGRect(x: currentTouche.location(in: self.superview).x - position, y: currentTouche.location(in: self.superview).y - position, width: size, height: size)
+
 
     }
 
