@@ -26,18 +26,38 @@
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="backgroundImageView" destination="6X0-S3-6sV" id="tEu-4h-b7p"/>
+                                </connections>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gQb-AN-cBA">
                                 <rect key="frame" x="0.0" y="818" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem systemItem="camera" id="cSi-U8-Ixu"/>
+                                    <barButtonItem systemItem="camera" id="cSi-U8-Ixu">
+                                        <connections>
+                                            <action selector="cameraTappedWithSender:" destination="BYZ-38-t0r" id="XsL-Gp-mGG"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="mlD-b2-PNp"/>
-                                    <barButtonItem title="Item" systemItem="add" id="wwc-tI-vwt"/>
+                                    <barButtonItem title="Item" systemItem="add" id="wwc-tI-vwt">
+                                        <connections>
+                                            <action selector="stampTappedWithSender:" destination="BYZ-38-t0r" id="Z9T-IY-04R"/>
+                                            <segue destination="IWc-7C-G8o" kind="presentation" identifier="MainToStamp" id="tWS-o2-5Tj"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="jJG-CK-Y1u"/>
-                                    <barButtonItem title="Item" systemItem="trash" id="ygW-El-3vx"/>
+                                    <barButtonItem title="Item" systemItem="trash" id="ygW-El-3vx">
+                                        <connections>
+                                            <action selector="deleteTappedWithSender:" destination="BYZ-38-t0r" id="SMn-TA-7aY"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="KNk-wu-qdF"/>
-                                    <barButtonItem systemItem="organize" id="V6z-uw-vMq"/>
+                                    <barButtonItem systemItem="organize" id="V6z-uw-vMq">
+                                        <connections>
+                                            <action selector="saveTappedWithSender:" destination="BYZ-38-t0r" id="aus-le-hGz"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -45,17 +65,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <segue destination="IWc-7C-G8o" kind="presentation" identifier="MainToStamp" id="Fy1-db-ffH"/>
+                        <outlet property="stampBaseView" destination="nRl-ky-YX9" id="qPr-PS-bsA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="97.767857142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Stamp Select View Controller-->
         <scene sceneID="h8H-rI-mgH">
             <objects>
-                <viewController id="IWc-7C-G8o" sceneMemberID="viewController">
+                <viewController id="IWc-7C-G8o" customClass="StampSelectViewController" customModule="StampCamera2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="umi-3R-yXX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,6 +115,10 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="IWc-7C-G8o" id="bGl-Uq-AmG"/>
+                                    <outlet property="delegate" destination="IWc-7C-G8o" id="iR2-Ug-LvR"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aWD-90-vCH"/>

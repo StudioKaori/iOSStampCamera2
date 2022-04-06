@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate,StampSelectViewControllerDelegate {
+class ViewController: UIViewController,  UINavigationControllerDelegate, UIImagePickerControllerDelegate, StampSelectViewControllerDelegate {
     
     
     @IBOutlet var stampBaseView: StampBaseView!
@@ -23,14 +23,21 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
     }
     
-    @IBAction func cameraTapped(sender: UIButton){
-        
+    @IBAction func cameraTapped(sender: UIButton) {
+        showSourceSelection()
     }
     
     @IBAction func stampTapped(sender: UIButton) {
         performSegue(withIdentifier: "MainToStamp", sender: nil)
     }
     
+    @IBAction func deleteTapped(sender: UIButton) {
+        stampBaseView.deleteStamp()
+    }
+    
+    @IBAction func saveTapped(sender: UIButton) {
+        confirmSave()
+    }
     
     func showSourceSelection() {
         let alert = UIAlertController(title: "Select image", message: "Please select image", preferredStyle: .alert)
@@ -54,7 +61,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         self.present(alert, animated: true, completion: nil)
     }
     
-    func pickImage(sourceType: UIImagePickerController.SourceType) {
+    func pickImage(sourceType: UIImagePickerController.SourceType){
         if UIImagePickerController.isSourceTypeAvailable(sourceType){
             let picker = UIImagePickerController()
             picker.sourceType = sourceType
@@ -64,9 +71,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             stampBaseView.setBackGroundImage(image: pickedImage)
         }
+        
         picker.dismiss(animated: true, completion: nil)
     }
     
