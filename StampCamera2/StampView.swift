@@ -18,7 +18,7 @@ class StampView: UIImageView {
         guard let touch = touches.first else {return}
         
         let dx = touch.location(in: self.superview).x - touch.previousLocation(in: self.superview).x
-        let dy = touch.location(in: self.superview).y - touch.previousLocation(in: self.superview?).y
+        let dy = touch.location(in: self.superview).y - touch.previousLocation(in: self.superview).y
         self.center = CGPoint(x: self.center.x + dx, y: self.center.y + dy)
     }
 
