@@ -32,13 +32,19 @@ class StampSelectViewController: UIViewController, UICollectionViewDataSource, U
         dismiss(animated: true, completion: nil)
     }
     
+    // collection view delegate methods
+    // return numbers of images to generate the cells
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return stampImages.count
     }
     
+    // set contents to each cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        // get a cell object
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StampCell", for: indexPath)
         
+        // tag is set in storyboard
         if let stampImageView = cell.viewWithTag(1) as? UIImageView {
             stampImageView.image = stampImages[indexPath.row]
         }
@@ -46,6 +52,7 @@ class StampSelectViewController: UIViewController, UICollectionViewDataSource, U
         return cell
     }
     
+    // Pass picked image from picker and set it in backgournd
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.didSelectStamp(stampImage: stampImages[indexPath.row])
         self.dismiss(animated: true, completion: nil)
