@@ -7,7 +7,21 @@
 
 import UIKit
 
+enum StampScale {
+    case small
+    case medium
+    case large
+}
+
 class StampView: UIImageView {
+    
+    var scale: StampScale = .medium
+    
+    override func didMoveToWindow() {
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        doubleTap.numberOfTapsRequired = 2
+        self.addGestureRecognizer(doubleTap)
+    }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.superview?.bringSubviewToFront(self)
@@ -20,6 +34,11 @@ class StampView: UIImageView {
         let dx = touch.location(in: self.superview).x - touch.previousLocation(in: self.superview).x
         let dy = touch.location(in: self.superview).y - touch.previousLocation(in: self.superview).y
         self.center = CGPoint(x: self.center.x + dx, y: self.center.y + dy)
+    }
+    
+    @objc func doubleTapped(){
+        print(self)
+        
     }
 
 }
