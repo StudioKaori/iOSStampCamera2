@@ -15,8 +15,10 @@ enum StampScale {
 
 class StampView: UIImageView {
     
-    var scale: StampScale = .medium
+    var currentTouche: UITouch!
     
+    // Add double tap gesture for resizing the stamp
+    // executed when it's instanciate in super view
     override func didMoveToWindow() {
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
         doubleTap.numberOfTapsRequired = 2
@@ -25,6 +27,7 @@ class StampView: UIImageView {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.superview?.bringSubviewToFront(self)
+        currentTouche = touches.first
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -38,7 +41,10 @@ class StampView: UIImageView {
     
     @objc func doubleTapped(){
         print(self)
-        
+        let size:CGFloat = 20
+        self.frame = CGRect(x: currentTouche.location(in: self.superview).x, y: currentTouche.location(in: self.superview).y, width: size, height: size)
+        //self.center = self.superview!.center
+
     }
 
 }
